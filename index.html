@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GeoQuiz Challenge</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Geography Quiz</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="quiz-container">
-    <h1>GeoQuiz Challenge</h1>
-    <div id="question-container">
+    <h1>Geography Quiz</h1>
+    <div id="quiz">
       <p id="question"></p>
-      <div id="choices"></div>
+      <button class="option" onclick="checkAnswer(0)">Option 1</button>
+      <button class="option" onclick="checkAnswer(1)">Option 2</button>
+      <button class="option" onclick="checkAnswer(2)">Option 3</button>
+      <button class="option" onclick="checkAnswer(3)">Option 4</button>
     </div>
-    <button id="next-btn" class="btn">Next Question</button>
-    <p id="score">Score: 0</p>
+    <p id="score"></p>
+    <button id="next" onclick="nextQuestion()">Next Question</button>
   </div>
-
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
