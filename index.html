@@ -1,35 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geography Quiz</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>English Learning App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon for App Icon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <div class="start-menu">
-    <h1>Geography Quiz</h1>
-    <p>Choose a category:</p>
-    <button onclick="startQuiz('countries')">Countries</button>
-    <button onclick="startQuiz('capitals')">Capitals</button>
-    <button onclick="startQuiz('flags')">Flags</button>
-  </div>
-  
-  <div class="quiz-container" style="display: none;">
-    <div id="quiz-header">
-      <h1>Geography Quiz</h1>
-      <p id="score"></p>
-    </div>
-    <div id="quiz">
-      <p id="question"></p>
-      <button class="option" onclick="checkAnswer(0)">Option 1</button>
-      <button class="option" onclick="checkAnswer(1)">Option 2</button>
-      <button class="option" onclick="checkAnswer(2)">Option 3</button>
-      <button class="option" onclick="checkAnswer(3)">Option 4</button>
-    </div>
-    <button id="next" onclick="nextQuestion()" style="display: none;">Next Question</button>
-  </div>
+    <!-- Landing Page -->
+    <section class="page active" id="landing-page" role="region" aria-labelledby="landing-header">
+        <header class="page-header">
+            <h1 id="landing-header">Master English with Confidence: Your Learning Journey Starts Here</h1>
+            <p>Start your journey to mastering English with interactive lessons and quizzes!</p>
+        </header>
+        <nav class="nav-buttons">
+            <button id="start-btn" aria-label="Start learning" class="btn-primary">Start</button>
+            <button id="about-btn" aria-label="Learn more about the app" class="btn-secondary">About</button>
+            <button id="feedback-btn" aria-label="Report a bug or issue" class="btn-secondary">Feedback</button> <!-- Feedback Button -->
+        </nav>
 
-  <script src="script.js"></script>
+        <!-- Current Date and Time -->
+        <div id="current-time" class="current-time">
+            <p id="time"></p>
+        </div>
+
+        <!-- Footer (Landing Page) -->
+        <footer class="footer">
+            <p>&copy; 2024 English Learning App. All rights reserved.</p>
+        </footer>
+    </section>
+
+    <!-- Category Selection Page -->
+    <section class="page" id="category-page" role="region" aria-labelledby="category-header">
+        <header class="page-header">
+            <h2 id="category-header">Select a Category</h2>
+        </header>
+        <div class="category-buttons">
+            <button class="category-btn" data-category="verbs" aria-label="Learn verbs" role="button">Verbs</button>
+            <button class="category-btn" data-category="nouns" aria-label="Learn nouns" role="button">Nouns</button>
+            <button class="category-btn" data-category="adjectives" aria-label="Learn adjectives" role="button">Adjectives</button>
+            <button class="category-btn" data-category="punctuation" aria-label="Learn punctuation" role="button">Punctuation</button>
+            <button class="category-btn" data-category="prepositions" aria-label="Learn prepositions" role="button">Prepositions</button>
+            <button class="category-btn" data-category="pronouns" aria-label="Learn pronouns" role="button">Pronouns</button>
+            <button class="category-btn" data-category="tenses" aria-label="Learn tenses" role="button">Tenses</button>
+        </div>
+    </section>
+
+    <!-- Main App Page -->
+    <section class="page" id="main-app" role="region" aria-labelledby="main-app-header">
+        <header class="page-header">
+            <h2 id="main-app-header">Lesson and Quiz</h2>
+            <p id="lesson-description">Select a category to begin your learning experience!</p>
+        </header>
+
+        <!-- Dynamic Content Area -->
+        <div class="dynamic-content">
+            <div class="lesson-content" id="lesson-content">
+                <h3>Lesson Content</h3>
+                <p>Content will be displayed here based on your category selection.</p>
+            </div>
+
+            <div class="quiz-content" id="quiz-content">
+                <h3 id="question">Quiz Question</h3>
+                <div class="quiz-options">
+                    <button class="quiz-answer" data-answer="option1" aria-label="Answer option 1" role="button">Option 1</button>
+                    <button class="quiz-answer" data-answer="option2" aria-label="Answer option 2" role="button">Option 2</button>
+                    <button class="quiz-answer" data-answer="option3" aria-label="Answer option 3" role="button">Option 3</button>
+                    <button class="quiz-answer" data-answer="option4" aria-label="Answer option 4" role="button">Option 4</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="feedback-message" id="feedback-message"></div>
+
+        <nav class="navigation-buttons">
+            <button class="nav-btn" id="menu-btn" aria-label="Go to the main menu" role="button">Menu</button>
+            <button class="nav-btn" id="back-btn" aria-label="Go back to the previous page" role="button">Back</button>
+            <button class="nav-btn" id="next-btn" aria-label="Go to next question or lesson" role="button">Next</button>
+        </nav>
+    </section>
+
+    <!-- About Page -->
+    <section class="page" id="about-page" role="region" aria-labelledby="about-header">
+        <header class="page-header">
+            <h2 id="about-header">About This App</h2>
+        </header>
+        <p>Learn English in an engaging and interactive way through lessons and quizzes!</p>
+        <ul>
+            <li>Comprehensive lessons for all levels of English learners.</li>
+            <li>Interactive quizzes to test your knowledge.</li>
+            <li>Suitable for students learning English as a second language.</li>
+            <li>Improves vocabulary, grammar, and sentence structure.</li>
+            <li>Continuous learning with regular content updates.</li>
+        </ul>
+        <nav class="nav-buttons">
+            <button class="nav-btn" id="menu-about-btn" aria-label="Go to the main menu from About" role="button">Go to Menu</button>
+        </nav>
+    </section>
+
+    <!-- Feedback Page -->
+    <section class="page" id="feedback-page" role="region" aria-labelledby="feedback-header">
+        <header class="page-header">
+            <h2 id="feedback-header">Give Us Your Feedback</h2>
+        </header>
+        <form id="feedback-form">
+            <label for="feedback-name">Your Name (Optional)</label>
+            <input type="text" id="feedback-name" name="name" placeholder="Enter your name">
+
+            <label for="feedback-email">Your Email (Optional)</label>
+            <input type="email" id="feedback-email" name="email" placeholder="Enter your email">
+
+            <label for="feedback-message">Your Feedback</label>
+            <textarea id="feedback-message" name="message" rows="4" placeholder="Describe the issue or suggestion" required></textarea>
+
+            <button type="submit" class="btn-primary">Submit Feedback</button>
+        </form>
+        <nav class="nav-buttons">
+            <button class="nav-btn" id="menu-feedback-btn" aria-label="Go to the main menu from Feedback" role="button">Go to Menu</button>
+        </nav>
+    </section>
+
+    <script src="script.js"></script>
+
+    <!-- Real-Time Date and Time Script -->
+    <script>
+        function updateTime() {
+            const timeElement = document.getElementById("time");
+            const currentDate = new Date();
+
+            // Format time
+            let hours = currentDate.getHours();
+            let minutes = currentDate.getMinutes();
+            let seconds = currentDate.getSeconds();
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            const timeString = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+
+            // Format date
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            const day = days[currentDate.getDay()];
+            const month = months[currentDate.getMonth()];
+            const date = currentDate.getDate();
+            const year = currentDate.getFullYear();
+
+            const dateString = `${day}, ${month} ${date}, ${year}`;
+
+            // Update the time and date on the page
+            timeElement.innerHTML = `${timeString} | ${dateString}`;
+        }
+
+        // Update the time every second
+        setInterval(updateTime, 1000);
+
+        // Run immediately when the page loads
+        updateTime();
+    </script>
 </body>
 </html>

@@ -1,0 +1,240 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #ecf0f1; /* Light text for contrast */
+    background: linear-gradient(135deg, #2980b9, #8e44ad); /* Gradients for dynamic background */
+    background-size: 200% 200%;
+    animation: gradientBackground 10s ease infinite; /* Smooth background transition */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    perspective: 1500px; /* Adding depth to 3D effects */
+}
+
+/* Gradient Background Animation */
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Landing Page Styling */
+.page {
+    display: none;
+    text-align: center;
+}
+
+.page.active {
+    display: block;
+    animation: slideIn 1s ease-out; /* Page sliding effect */
+}
+
+/* Slide-In Animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(100%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Welcome Container */
+.welcome-container {
+    width: 80%;
+    max-width: 900px;
+    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: containerPop 1.5s ease-out;
+    transform-style: preserve-3d;
+}
+
+/* Container Pop Animation */
+@keyframes containerPop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #f39c12; /* Beautiful orange color for the heading */
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    animation: textSlideIn 1.5s ease-out; /* Slide-in animation for heading */
+}
+
+/* Heading Slide-In Animation */
+@keyframes textSlideIn {
+    from {
+        transform: translateX(-100%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Tagline Styling */
+h2 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #ecf0f1; /* Light gray text for tagline */
+    margin-bottom: 40px;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Book Image Styling */
+#book-img {
+    width: 200px;
+    margin-bottom: 40px;
+    border-radius: 50%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+#book-img:hover {
+    transform: rotate(360deg) scale(1.1); /* 3D rotation on hover */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Styling */
+button {
+    background-color: #3498db; /* Soft Blue */
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 270px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform-origin: center;
+}
+
+/* Button Hover Effect */
+button:hover {
+    transform: scale(1.05) rotate(5deg); /* Rotate effect on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Button Press Animation */
+@keyframes buttonPress {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(4px);
+    }
+}
+
+button:active {
+    animation: buttonPress 0.2s ease-out forwards;
+}
+
+/* Animated Image Styling */
+#book-img {
+    width: 200px;
+    margin-bottom: 40px;
+    border-radius: 50%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    animation: imgBounce 1.5s ease-out infinite; /* Infinite bounce effect */
+}
+
+#book-img:hover {
+    transform: rotate(360deg) scale(1.1); /* 3D rotation on hover */
+}
+
+/* Image Bounce Animation */
+@keyframes imgBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Button Animations */
+button#start-btn {
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 18px;
+    }
+}
+
+/* Styling for the Current Time Display */
+.current-time {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: #ecf0f1; /* White for time */
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#time {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ecf0f1; /* White for time */
+    letter-spacing: 1px;
+}
